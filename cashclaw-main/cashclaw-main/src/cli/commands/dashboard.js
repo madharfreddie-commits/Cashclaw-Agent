@@ -34,7 +34,7 @@ export async function runDashboard(options = {}) {
   showMiniBanner();
 
   const config = await loadConfig();
-  const startPort = options.port || config.server.port || 3847;
+  const startPort = options.port || process.env.PORT || config.server.port || 3847;
   const host = config.server.host || '0.0.0.0';
 
   const spinner = ora('Starting dashboard server...').start();
